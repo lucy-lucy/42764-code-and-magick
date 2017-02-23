@@ -14,7 +14,7 @@ var fireball = setup.querySelector('.setup-fireball-wrap');
 
 var setupSubmit = setup.querySelector('.setup-submit');
 
-var wizardCoatColor = [
+var wizardCoatColors = [
   'rgb(101, 137, 164)',
   'rgb(241, 43, 107)',
   'rgb(146, 100, 161)',
@@ -22,24 +22,20 @@ var wizardCoatColor = [
   'rgb(215, 210, 55)',
   'rgb(0, 0, 0)'
 ];
-var wizardEyesColor = [
+var wizardEyesColors = [
   'black',
   'red',
   'blue',
   'yellow',
   'green'
 ];
-var fireballColor = [
+var fireballColors = [
   '#ee4830',
   '#30a8ee',
   '#5ce6c0',
   '#e848d5',
   '#e6e848'
 ];
-
-var getRandomColor = function (colors) {
-  return colors[Math.floor(Math.random() * colors.length)];
-};
 
 var ENTER_KEY_CODE = 13;
 var ESC_KEY_CODE = 27;
@@ -98,14 +94,7 @@ setupOpen.addEventListener('keydown', function (evt) {
 userName.required = true;
 userName.maxLength = 50;
 
-wizardCoat.addEventListener('click', function () {
-  wizardCoat.style.fill = getRandomColor(wizardCoatColor);
-});
 
-wizardEyes.addEventListener('click', function () {
-  wizardEyes.style.fill = getRandomColor(wizardEyesColor);
-});
-
-fireball.addEventListener('click', function () {
-  fireball.style.background = getRandomColor(fireballColor);
-});
+window.colorizeElement(wizardCoat, wizardCoatColors, 'fill');
+window.colorizeElement(wizardEyes, wizardEyesColors, 'fill');
+window.colorizeElement(fireball, fireballColors, 'backgroundColor');
